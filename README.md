@@ -7,7 +7,7 @@ My assembler's pretty basic, but it works.
 
 `rom.asm` is the emulator's default ROM.
 
-`ocasm` is the assembler.
+`ocasm` is the assembler. `ocasm.c` is a (broken) C version of it.
 
 `insts.txt` is a list of instructions for the CPU, which is also embedded into the `ocasm` file. This will expand with time.
 
