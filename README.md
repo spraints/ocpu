@@ -21,4 +21,4 @@ My emulator loads the ROM into memory, and then starts CPU execution. Anything f
 
 With enough instructions, it probably would be possible to run something like FreeDOS on this thing.... Hmm. I'll think about it.
 
-What would really be insane is if someone were to write an x86 emulator that works on this CPU, still has memory management.
+What would really be insane is if someone were to write an x86 emulator that works on this CPU, still has memory management, and runs DOS.
