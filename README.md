@@ -1,7 +1,7 @@
 # ocpu
 Everything related to my custom CPU emulator.
 
-A web-based version of the emulator is located [here](https://scratch.mit.edu/projects/322195979/). The Python version (`ocpu.py`) requires `pygame`.
+A web-based version of the emulator is located [here](https://scratch.mit.edu/projects/322195979/). The Python version (`ocpu.py`) requires `pygame`. It also doesn't quite seem to work on macOS for some reason.
 
 My assembler's pretty basic, but it works.
 
