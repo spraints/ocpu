@@ -97,7 +97,6 @@ int parseasm(char* line) {
 int main(int argc, char **argv) {
     printf("init");
     
-#ifdef OCASM_ALL
     if (argc != 2) { /* If there is no [FILE] argument */
         printf("Usage: ocasm [FILE]"); /* Print usage */
         exit(0); /* Exit */
@@ -105,6 +104,7 @@ int main(int argc, char **argv) {
     
     printf("open files");
 
+#ifdef OCASM_ALL
     int infile = fopen(argv[1],"r"); /* Open the input file */
     int outfile = fopen("out.oca","w"); /* Open the output file */
     
