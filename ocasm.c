@@ -95,10 +95,10 @@ int parseasm(char* line) {
 #endif
 
 int main(int argc, char **argv) {
-#ifdef OCASM_ALL
     printf("init");
     FILE *fptr; /* Not sure what this does, but it's necessary */
     
+#ifdef OCASM_ALL
     if (argc != 2) { /* If there is no [FILE] argument */
         printf("Usage: ocasm [FILE]"); /* Print usage */
         exit(0); /* Exit */
