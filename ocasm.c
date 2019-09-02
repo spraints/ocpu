@@ -15,46 +15,46 @@ int parse(char *line)
         
         word = "";
         
-        printf("ps wd");
+        printf("ps wd\n");
         
         while (1) {
             if (i < strlen(line)) {
                 if (line[i] != " ") {
-                    printf("%s",line[i]);
+                    printf("%s\n",line[i]);
                     strcat(word,line[i]);
                     ++i;
-                    printf("inc i");
+                    printf("inc i\n");
                 }
                 else {
-                    printf("br");
+                    printf("br\n");
                     break;
                 }
             }
             else {
-                printf("br");
+                printf("br\n");
                 break;
             }
         }
         ++i;
-        printf("inc i");
-        printf("add wd %s",word);
+        printf("inc i\n");
+        printf("add wd %s\n",word);
         insts[t] = word;
         ++t;
-        printf("inc t");
+        printf("inc t\n");
     }
-    printf("rtn");
+    printf("rtn\n");
     return(insts, t);
 }
 
 
 int parseasm(char* line) {
-    printf("ps ln %s", line);
+    printf("ps ln %s\n", line);
     char* code = parse(line);
     char ln[4];
     
     int C = code[0];
     
-    printf("ps inst %s", C);
+    printf("ps inst %s\n", C);
     if (C == "ld") {
         strcat(ln, "00");
     }
@@ -83,26 +83,26 @@ int parseasm(char* line) {
         strcat(ln, "FF");
     }
     
-    printf("asm ln");
+    printf("asm ln\n");
     strcat(ln, " "); strcat(ln,code[1]); strcat(ln," "); strcat(ln,code[2]);
     strcat(ln," "); strcat(ln,code[3]);
     
-    printf("got %s", ln);
+    printf("got %s\n", ln);
     
-    printf("rtn");
+    printf("rtn\n");
     return(ln);
 }
 #endif
 
 int main(int argc, char **argv) {
-    printf("init");
+    printf("init\n");
     
     if (argc != 2) { /* If there is no [FILE] argument */
-        printf("Usage: ocasm [FILE]"); /* Print usage */
+        printf("Usage: ocasm [FILE]\n"); /* Print usage */
         exit(0); /* Exit */
     }
     
-    printf("open files");
+    printf("open files\n");
 
 #ifdef OCASM_ALL
     int infile = fopen(argv[1],"r"); /* Open the input file */
@@ -114,20 +114,20 @@ int main(int argc, char **argv) {
     
     int i = 0;
     
-    printf("read");
+    printf("read\n");
 
     while (fgets(line, sizeof(line), infile)) { /* Magic */
         lines[i] = line;
-        printf("get ln %d", i);
+        printf("get ln %d\n", i);
     }
     
-    printf("close");
+    printf("close\n");
 
     fclose(infile);
     
     int file_len = i;
     
-    printf("parse");
+    printf("parse\n");
 
     for (int ln=0; ln == i; ++i) {
         fprintf(outfile, parseasm(lines[ln]));
@@ -135,6 +135,6 @@ int main(int argc, char **argv) {
     
     fclose(outfile);
     
-    printf("done.");
+    printf("done.\n");
 #endif
 }
