@@ -2,9 +2,9 @@
 #include <string.h>
 #include <stdlib.h>
 
-#ifdef OCASM_ALL
 int parse(char *line)
 {
+#ifdef OCASM_ALL
     char insts[4];
     int i = 0;
     int t = 0;
@@ -44,13 +44,13 @@ int parse(char *line)
     }
     printf("rtn\n");
     return(insts, t);
-}
 #endif
+}
 
 const char *parseasm(const char* line) {
     printf("ps ln %s\n", line);
-#ifdef OCASM_ALL
     char* code = parse(line);
+#ifdef OCASM_ALL
     char ln[4];
     
     int C = code[0];
