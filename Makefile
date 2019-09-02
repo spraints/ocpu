@@ -8,4 +8,4 @@ ctest: cocasm rom.asm
 	./cocasm rom.asm > ctest
 
 cocasm: ocasm.c
-	gcc -Wall -o cocasm ocasm.c
+	gcc -Wall -Werror -o cocasm ocasm.c
