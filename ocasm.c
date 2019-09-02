@@ -105,7 +105,7 @@ int main(int argc, char **argv) {
     printf("open files\n");
 
     FILE *infile = fopen(argv[1],"r"); /* Open the input file */
-    //FILE *outfile = fopen("out.oca","w"); /* Open the output file */
+    FILE *outfile = fopen("out.oca","w"); /* Open the output file */
     
     char lines[65535][16]; /* File probably won't be this long, but
         a single file should not be longer than 65535 lines. */
@@ -116,7 +116,7 @@ int main(int argc, char **argv) {
     printf("read\n");
 
     while (fgets(line, sizeof(line), infile)) { /* Magic */
-        strncpy(lines[i], line, sizeof(line));
+        strncpy(lines[i], line, sizeof(line[i]));
         printf("get ln %d\n", i);
         i++;
     }
@@ -125,7 +125,6 @@ int main(int argc, char **argv) {
 
     fclose(infile);
     
-#ifdef OCASM_ALL
     int file_len = i;
     
     printf("parse\n");
@@ -137,5 +136,4 @@ int main(int argc, char **argv) {
     fclose(outfile);
     
     printf("done.\n");
-#endif
 }
