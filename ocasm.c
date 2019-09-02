@@ -45,10 +45,11 @@ int parse(char *line)
     printf("rtn\n");
     return(insts, t);
 }
-
+#endif
 
 int parseasm(char* line) {
     printf("ps ln %s\n", line);
+#ifdef OCASM_ALL
     char* code = parse(line);
     char ln[4];
     
@@ -91,8 +92,8 @@ int parseasm(char* line) {
     
     printf("rtn\n");
     return(ln);
-}
 #endif
+}
 
 #define LINE_LEN 16
 
@@ -130,8 +131,7 @@ int main(int argc, char **argv) {
     printf("parse\n");
 
     for (int ln=0; ln < i; ++ln) {
-        printf("[%d] %s\n", ln, &lines[ln][0]);
-        //fprintf(outfile, parseasm(lines[ln]));
+        fprintf(outfile, parseasm(lines[ln]));
     }
     
     fclose(outfile);
