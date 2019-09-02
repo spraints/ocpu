@@ -94,6 +94,8 @@ int parseasm(char* line) {
 }
 #endif
 
+#define LINE_LEN 16
+
 int main(int argc, char **argv) {
     printf("init\n");
     
@@ -107,16 +109,16 @@ int main(int argc, char **argv) {
     FILE *infile = fopen(argv[1],"r"); /* Open the input file */
     FILE *outfile = fopen("out.oca","w"); /* Open the output file */
     
-    char lines[65535][16]; /* File probably won't be this long, but
+    char lines[65535][LINE_LEN]; /* File probably won't be this long, but
         a single file should not be longer than 65535 lines. */
-    char line[16] = {0}; /* Lines should only be about 16 characters max */
+    char line[LINE_LEN] = {0}; /* Lines should only be about 16 characters max */
     
     int i = 0;
     
     printf("read\n");
 
     while (fgets(line, sizeof(line), infile)) { /* Magic */
-        strncpy(lines[i], line, sizeof(line[i]));
+        strncpy(lines[i], line, LINE_LEN);
         printf("get ln %d\n", i);
         i++;
     }
@@ -125,12 +127,11 @@ int main(int argc, char **argv) {
 
     fclose(infile);
     
-    int file_len = i;
-    
     printf("parse\n");
 
-    for (int ln=0; ln == i; ++i) {
-        fprintf(outfile, parseasm(lines[ln]));
+    for (int ln=0; ln < i; ++ln) {
+        printf("[%d] %s\n", ln, &lines[ln][0]);
+        //fprintf(outfile, parseasm(lines[ln]));
     }
     
     fclose(outfile);
