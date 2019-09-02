@@ -132,7 +132,7 @@ int main(int argc, char **argv) {
     printf("parse\n");
 
     for (int ln=0; ln < i; ++ln) {
-        fprintf(outfile, "%s\n", parseasm(&lines[ln][0]));
+        fprintf(outfile, "%s\n", parseasm(lines[ln]));
     }
     
     fclose(outfile);
