@@ -105,19 +105,20 @@ int main(int argc, char **argv) {
     printf("open files\n");
 
     FILE *infile = fopen(argv[1],"r"); /* Open the input file */
-    FILE *outfile = fopen("out.oca","w"); /* Open the output file */
+    //FILE *outfile = fopen("out.oca","w"); /* Open the output file */
     
-    char lines[65535]; /* File probably won't be this long, but
+    char lines[65535][16]; /* File probably won't be this long, but
         a single file should not be longer than 65535 lines. */
-    char line[16]; /* Lines should only be about 16 characters max */
+    char line[16] = {0}; /* Lines should only be about 16 characters max */
     
     int i = 0;
     
     printf("read\n");
 
     while (fgets(line, sizeof(line), infile)) { /* Magic */
-        lines[i] = line;
+        strncpy(lines[i], line, sizeof(line));
         printf("get ln %d\n", i);
+        i++;
     }
     
     printf("close\n");
