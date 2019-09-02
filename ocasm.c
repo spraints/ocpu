@@ -2,6 +2,7 @@
 #include <string.h>
 #include <stdlib.h>
 
+#ifdef OCASM_ALL
 int parse(char *line)
 {
     char insts[4];
@@ -91,9 +92,10 @@ int parseasm(char* line) {
     printf("rtn");
     return(ln);
 }
-
+#endif
 
 int main(int argc, char **argv) {
+#ifdef OCASM_ALL
     printf("init");
     FILE *fptr; /* Not sure what this does, but it's necessary */
     
@@ -135,4 +137,5 @@ int main(int argc, char **argv) {
     fclose(outfile);
     
     printf("done.");
+#endif
 }
