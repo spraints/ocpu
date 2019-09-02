@@ -2,8 +2,7 @@
 #include <string.h>
 #include <stdlib.h>
 
-int parse(line)
-char* line;
+int parse(char *line)
 {
     char insts[4];
     int i = 0;
