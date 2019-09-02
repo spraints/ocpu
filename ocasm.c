@@ -107,7 +107,6 @@ int main(int argc, char **argv) {
     FILE *infile = fopen(argv[1],"r"); /* Open the input file */
     FILE *outfile = fopen("out.oca","w"); /* Open the output file */
     
-#ifdef OCASM_ALL
     char lines[65535]; /* File probably won't be this long, but
         a single file should not be longer than 65535 lines. */
     char line[16]; /* Lines should only be about 16 characters max */
@@ -125,6 +124,7 @@ int main(int argc, char **argv) {
 
     fclose(infile);
     
+#ifdef OCASM_ALL
     int file_len = i;
     
     printf("parse\n");
