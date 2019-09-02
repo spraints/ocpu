@@ -2,8 +2,9 @@
 #include <string.h>
 #include <stdlib.h>
 
-int parse(char *line)
+int parse(const char *line, char *insts)
 {
+    return 0;
 #ifdef OCASM_ALL
     char insts[4];
     int i = 0;
@@ -49,7 +50,7 @@ int parse(char *line)
 
 const char *parseasm(const char* line) {
     printf("ps ln %s\n", line);
-    char* code = parse(line);
+    //char **parsed = parse(line);
 #ifdef OCASM_ALL
     char ln[4];
     
