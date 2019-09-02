@@ -104,8 +104,8 @@ int main(int argc, char **argv) {
     
     printf("open files\n");
 
-    int infile = fopen(argv[1],"r"); /* Open the input file */
-    int outfile = fopen("out.oca","w"); /* Open the output file */
+    FILE *infile = fopen(argv[1],"r"); /* Open the input file */
+    FILE *outfile = fopen("out.oca","w"); /* Open the output file */
     
 #ifdef OCASM_ALL
     char lines[65535]; /* File probably won't be this long, but
